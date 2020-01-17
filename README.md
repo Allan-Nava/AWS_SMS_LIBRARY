@@ -3,7 +3,7 @@
 #### Required boto3
 
 
-- Example of usigin:
+- Example of using:
 ```py
 mobile = "mobile number"
 message="this is the message "
