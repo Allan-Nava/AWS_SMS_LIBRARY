@@ -1,0 +1,2 @@
+# Requirements for python3
+boto3==1.0.0
