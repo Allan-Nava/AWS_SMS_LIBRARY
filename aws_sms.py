@@ -10,7 +10,10 @@
 #
 #################################################################################
 #
-import boto3
+import boto3, logging
+#
+## This retrieves a Python logging instance (or creates it)
+logger = logging.getLogger(__name__)
 #
 #
 class AWS_SMS(object):
@@ -26,7 +29,7 @@ class AWS_SMS(object):
         self.client = client
         #
         try:
-            print("AWS_SMS initiliaze -> " + self.client)
+            logger.debug("AWS_SMS initiliaze -> %s " % self.client)
             self.sns = boto3.client(
                 self.client,
                 # Hard coded strings as credentials, not recommended.
