@@ -20,6 +20,7 @@ class AWS_SMS(object):
     #
     AWS_ACCESS_KEY_ID     = 'aws access key id'
     AWS_SECRET_ACCESS_KEY = 'aws secret access key'
+    client                = None
     #
     def __init__(self, client='sns'):
         """
@@ -47,15 +48,11 @@ class AWS_SMS(object):
     # - Metodo per mandare un sms
     def send_sms(self, message="", subject="subject", phoneNumber=""):
         #
-        #data                = self._prepare_request()
-        #data["PhoneNumber"] = "+393409477141"
-        #data["Message"]     = "message"
         result              = self.sns.publish(
             PhoneNumber=phoneNumber,
             Message=message,
             Subject=subject
         )
-        #result              = self.make_request("publish", data)
         return result
         #
     #
