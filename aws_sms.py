@@ -4,8 +4,9 @@
 #   Author          :   Allan Nava
 #   Modifier        :   Allan Nava
 #   Date            :   04/11/2019
+#   Update          :   18/01/2020
 #
-#   AWS SMS Library
+#   AWS SMS Python Library
 #
 #
 #################################################################################
