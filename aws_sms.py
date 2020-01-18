@@ -13,6 +13,8 @@
 #
 import boto3, logging
 #
+from os import environ
+#
 ## This retrieves a Python logging instance (or creates it)
 logger = logging.getLogger(__name__)
 #
@@ -32,12 +34,20 @@ class AWS_SMS(object):
         #
         try:
             logger.debug("AWS_SMS initiliaze -> %s " % self.client)
-            self.sns = boto3.client(
-                self.client,
-                # Hard coded strings as credentials, not recommended.
-                aws_access_key_id=self.AWS_ACCESS_KEY_ID,
-                aws_secret_access_key=self.AWS_SECRET_ACCESS_KEY
-            )
+            if environ.get('AWS_ACCESS_KEY_ID') is not None and environ.get('AWS_SECRET_ACCESS_KEY') is not None:
+                self.sns = boto3.client(
+                    self.client,
+                    # Hard coded strings as credentials, not recommended.
+                    aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
+                    aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY')
+                )
+            else:
+                self.sns = boto3.client(
+                    self.client,
+                    # Hard coded strings as credentials, not recommended.
+                    aws_access_key_id=self.AWS_ACCESS_KEY_ID,
+                    aws_secret_access_key=self.AWS_SECRET_ACCESS_KEY
+                )
         except Exception as e:
             raise Exception("AWS_SMS WS Endpoint not reachable: {}".format(e))
         #
