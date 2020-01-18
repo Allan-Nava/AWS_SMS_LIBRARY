@@ -22,6 +22,11 @@ steps:
   inputs:
     versionSpec: '$(python.version)'
   displayName: 'Use Python $(python.version)'
+  env: # Or as an environment variable
+    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    phoneNumber: ${{ secrets.phoneNumber }}
+  
 
 - script: |
     python -m pip install --upgrade pip
