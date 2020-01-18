@@ -1,4 +1,4 @@
-# AWS SNS library
+# AWS SNS Python Library
 
 #### Required boto3, python3
 
