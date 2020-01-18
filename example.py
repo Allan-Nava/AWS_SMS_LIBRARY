@@ -10,9 +10,9 @@
 #################################################################################
 #
 #
-from .aws_sms import AWS_SMS
+import aws_sms
 #
-aws = AWS_SMS()
+aws = aws_sms.AWS_SMS()
 #
 aws.send_sms(message="prova", phoneNumber="+39numero")
 #
