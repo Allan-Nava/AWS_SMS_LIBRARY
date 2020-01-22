@@ -39,14 +39,16 @@ class AWS_SMS(object):
                     self.client,
                     # Hard coded strings as credentials, not recommended.
                     aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
-                    aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY')
+                    aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
+                    region_name="eu-west-1",
                 )
             else:
                 self.sns = boto3.client(
                     self.client,
                     # Hard coded strings as credentials, not recommended.
                     aws_access_key_id=self.AWS_ACCESS_KEY_ID,
-                    aws_secret_access_key=self.AWS_SECRET_ACCESS_KEY
+                    aws_secret_access_key=self.AWS_SECRET_ACCESS_KEY,
+                    region_name="eu-west-1",
                 )
         except Exception as e:
             raise Exception("AWS_SMS WS Endpoint not reachable: {}".format(e))
