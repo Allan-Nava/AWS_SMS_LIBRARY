@@ -1,4 +1,5 @@
 # AWS SNS Python Library
+[![Discord Chat](https://img.shields.io/badge/Discord-Chat-important)](https://discord.gg/nMTKrRZ)
 
 #### Required boto3, python3
 
