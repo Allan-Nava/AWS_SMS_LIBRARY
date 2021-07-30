@@ -11,9 +11,11 @@
 #
 #################################################################################
 #
-import boto3, logging
-#
+import logging
+import os
 from os import environ
+#
+import boto3
 #
 ## This retrieves a Python logging instance (or creates it)
 logger = logging.getLogger(__name__)
