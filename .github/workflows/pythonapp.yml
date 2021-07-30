@@ -1,5 +1,8 @@
 name: Python application
-on: [push]
+on:
+  pull_request:
+  push:
+    branches: [master]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -10,7 +13,6 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install flake8 pytest -r requirements.txt
-    - run: python example.py
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
@@ -19,3 +21,4 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: pytest
+    - run: python example.py
