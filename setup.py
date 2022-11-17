@@ -16,7 +16,7 @@ setup(
     description='aws-sms-library is a Python package providing access to the AWS SMS API.',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    packages=['aws', 'aws.sms'],
+    packages=['aws'],
     install_requires=['boto3==1.0.0'],
     tests_require=['httmock>=1.2.5'],
     classifiers=[
